@@ -1,0 +1,55 @@
+body{
+    background-color: #F7ECDE;
+    font-family: 'PT Sans Caption', sans-serif;
+}
+
+::selection{
+    background-color: #fec260;
+    
+}
+
+.container h1{
+    text-align: center;
+    font-family: 'Pacifico', cursive;
+    font-size: 3.5rem;
+}
+
+.book-content{
+    border-top: 2px dotted #352e28;
+    border-bottom: 2px dotted #352e28;
+}
+
+input:focus{
+    border-color: #fec26055 !important;
+   box-shadow: 0 0 0 0.25rem #fec26055 !important;
+}
+
+h2{
+    font-size: 25px;
+    background-image: linear-gradient(to right, #3ca55c 30%, #b5ac49 70%);
+    -webkit-background-clip: text; 
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+    font-family: 'Righteous', sans-serif;
+}
+
+/* datatable customize */
+.form-select:focus {
+    border-color: #fec26055;
+    outline: 0;
+    box-shadow: 0 0 0 0.25rem #fec26055;
+}
+
+.page-link:focus {
+    box-shadow:0 0 0 0.25rem #fec26055;
+}
+
+input.is-valid:focus{
+    border-color: #198754 !important;
+   box-shadow: 0 0 0 0.25rem #198754 !important;
+}
+
+input.is-invalid:focus{
+    border-color: #dc3545 !important;
+   box-shadow: 0 0 0 0.25rem #dc3545 !important;
+}
