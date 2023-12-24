@@ -2,26 +2,28 @@
 const siteNameInput = document.getElementById("siteName");
 const siteUrlInput = document.getElementById("siteUrl");
 const addBtn = document.getElementById("AddBtn");
+const resetBtn = document.getElementById("resetForm");
 const modal = document.getElementById("exampleModal");
-const tableElement = document.getElementById("example");
 const nameErrorMessage = document.getElementById("nameMessage");
 const emailErrorMessage = document.getElementById("emailMessage");
+const clearBtn = document.getElementById("clearTable");
 
 // DataTable Initialization
-const dataTable = new DataTable(tableElement, {
+const dataTable = new DataTable("#example", {
   responsive: true,
   searching: true,
   columnDefs: [{ targets: [0, 2, 3], searchable: false }],
 });
 
 // Local Storage and Update Flags
-const siteList = JSON.parse(localStorage.getItem("sites")) || [];
+let siteList = JSON.parse(localStorage.getItem("sites")) || [];
 let selectedIndex;
 let isUpdateMode = false;
 
 // Regular Expressions for Validation
-const nameRegex = /^[A-Za-z]\w{5,15}$/;
-const urlRegex =/^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!-)[A-Z\d-]{1,63}(?<!-)\.?)+\w{2,6}(?::\d{1,5})?(?:[/?#]\S*)?$/i;
+const nameRegex = /^[A-Za-z]\w{5,12}$/;
+const urlRegex =
+  /^(?:(?:https?|ftp):\/\/)(?:\S+(?::\S*)?@)?(?:(?!-)[A-Z\d-]{1,63}(?<!-)\.?)+\w{2,6}(?::\d{1,5})?(?:[/?#]\S*)?$/i;
 
 // Update Item Function
 function updateItem(index) {
@@ -72,11 +74,11 @@ function displayTable() {
         <td>${i}</td>
         <td>${siteList[i].siteName}</td>
         <td>
-          <a href="${siteList[i].siteUrl}" target="_blank" class="btn btn-success"><i class="fa-solid fa-eye"></i> Visit</a>
+          <a href="${siteList[i].siteUrl}" target="_blank" class="btn btn-success "><i class="fa-solid fa-eye"></i> Visit</a>
         </td>
         <td>
-          <button class="btn btn-primary" onclick="updateItem(${i})"><i class="fa-regular fa-pen-to-square"></i> Update</button>
-          <button class="btn btn-danger" onclick="deleteItemConfirmation(${i})" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-trash"></i> Delete</button>
+          <button class="btn btn-primary" onclick="updateItem(${i})"><i class="fa-regular fa-pen-to-square"></i></button>
+          <button class="btn btn-danger" onclick="deleteItemConfirmation(${i})" data-bs-toggle="modal" data-bs-target="#exampleModal"><i class="fa-solid fa-trash"></i></button>
         </td>
       `;
     dataTable.row.add(newRow);
@@ -85,11 +87,29 @@ function displayTable() {
   dataTable.draw();
 }
 
+
 // Reset Form Function
 function resetForm() {
   siteNameInput.value = "";
   siteUrlInput.value = "";
+  siteNameInput.classList.remove("is-invalid");
+  siteUrlInput.classList.remove("is-invalid");
+  siteNameInput.classList.remove("is-valid");
+  siteUrlInput.classList.remove("is-valid");
+  nameErrorMessage.classList.add("d-none");
+  emailErrorMessage.classList.add("d-none");
 }
+
+function clearTable() {
+  $("#clearTableModal").modal("show");
+}
+
+function clearTableConfirmed() {
+  localStorage.clear();
+  siteList=[]
+  displayTable();
+}
+
 
 // Delete Item Confirmation Function
 function deleteItemConfirmation(index) {
@@ -141,6 +161,15 @@ addBtn.addEventListener("click", function () {
     addBtn.textContent = "Add Site";
   }
 });
+
+resetBtn.addEventListener("click", function () {
+  resetForm();
+});
+
+clearBtn.addEventListener("click", function () {
+  clearTable();
+});
+
 
 siteNameInput.addEventListener("input", function () {
   validateInput(siteNameInput, nameRegex, nameErrorMessage);

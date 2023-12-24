@@ -1,55 +1,226 @@
-body{
-    background-color: #F7ECDE;
-    font-family: 'PT Sans Caption', sans-serif;
+body {
+  background: linear-gradient(to bottom, #2c3e50, #3498db);
+  font-family: "PT Sans Caption", sans-serif;
 }
 
-::selection{
-    background-color: #fec260;
-    
+::selection {
+  background-color: #fec260;
 }
 
-.container h1{
-    text-align: center;
-    font-family: 'Pacifico', cursive;
-    font-size: 3.5rem;
+.container h1 {
+  text-align: center;
+  font-family: "Pacifico", cursive;
+  font-size: 3.5rem;
+   color: #343a40;
 }
 
-.book-content{
-    border-top: 2px dotted #352e28;
-    border-bottom: 2px dotted #352e28;
+input:focus {
+  border-color: #fec26055 !important;
+  box-shadow: 0 0 0 0.25rem #fec26055 !important;
 }
 
-input:focus{
-    border-color: #fec26055 !important;
-   box-shadow: 0 0 0 0.25rem #fec26055 !important;
-}
-
-h2{
-    font-size: 25px;
-    background-image: linear-gradient(to right, #3ca55c 30%, #b5ac49 70%);
-    -webkit-background-clip: text; 
-    -webkit-text-fill-color: transparent;
-    text-align: center;
-    font-family: 'Righteous', sans-serif;
+h2 {
+  font-size: 25px;
+  background-image: linear-gradient(to right, #3ca55c 30%, #b5ac49 70%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-align: center;
+  font-family: "Righteous", sans-serif;
 }
 
 /* datatable customize */
 .form-select:focus {
-    border-color: #fec26055;
-    outline: 0;
-    box-shadow: 0 0 0 0.25rem #fec26055;
+  border-color: #fec26055;
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem #fec26055;
 }
 
 .page-link:focus {
-    box-shadow:0 0 0 0.25rem #fec26055;
+  box-shadow: 0 0 0 0.25rem #fec26055;
 }
 
-input.is-valid:focus{
-    border-color: #198754 !important;
-   box-shadow: 0 0 0 0.25rem #198754 !important;
+input.is-valid:focus {
+  border-color: #198754 !important;
+  box-shadow: 0 0 0 0.25rem #198754 !important;
 }
 
-input.is-invalid:focus{
-    border-color: #dc3545 !important;
-   box-shadow: 0 0 0 0.25rem #dc3545 !important;
+input.is-invalid:focus {
+  border-color: #dc3545 !important;
+  box-shadow: 0 0 0 0.25rem #dc3545 !important;
 }
+
+table.dataTable.dtr-inline.collapsed > tbody > tr > td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed > tbody > tr > th.dtr-control:before {
+  top: 9px;
+  left: 0px;
+  height: 14px;
+  width: 14px;
+  color: white;
+  border: 2px solid white;
+  border-radius: 14px;
+  box-shadow: 0 0 3px #444;
+  box-sizing: content-box;
+  text-align: center;
+  font-family: "Courier New", Courier, monospace;
+  line-height: 14px;
+  content: "+";
+  background-color: #31b131;
+}
+
+table.dataTable.dtr-inline.collapsed
+  > tbody
+  > tr.parent
+  > td.dtr-control:before,
+table.dataTable.dtr-inline.collapsed
+  > tbody
+  > tr.parent
+  > th.dtr-control:before {
+  content: "-";
+  background-color: #d33333;
+}
+
+body {
+  overflow-x: hidden;
+}
+
+/*-------------------------------  Start Media-Queries ------------------------------- */
+@media (max-width: 768px) {
+  .container {
+    max-width: 88%;
+  }
+  div.dataTables_filter input {
+    margin: 7px 0;
+    width: 50% !important;
+  }
+}
+
+@media (max-width: 400px) {
+    .container .title{
+        font-size: 2.5rem;
+    }
+}
+
+/*-------------------------------  End Media-Queries ------------------------------- */
+
+/* -------------------------------title animation ------------------------------- */
+@keyframes lights {
+  0% {
+    color: hsl(230, 40%, 80%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.2),
+      0 0 0.125em hsla(320, 100%, 60%, 0.3),
+      -1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+      1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+  }
+  
+  30% { 
+    color: hsl(230, 80%, 90%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 60%, 0.5),
+      -0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+      0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  }
+  
+  40% { 
+    color: hsl(230, 100%, 95%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 90%, 0.5),
+      -0.25em -0.125em 0.125em hsla(40, 100%, 60%, 0.2),
+      0.25em 0.125em 0.125em hsla(200, 100%, 60%, 0.4);
+  }
+  
+  70% {
+    color: hsl(230, 80%, 90%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.5),
+      0 0 0.125em hsla(320, 100%, 60%, 0.5),
+      0.5em -0.125em 0.25em hsla(40, 100%, 60%, 0.2),
+      -0.5em 0.125em 0.25em hsla(200, 100%, 60%, 0.4);
+  }
+  
+  100% {
+    color: hsl(230, 40%, 80%);
+    text-shadow:
+      0 0 1em hsla(320, 100%, 50%, 0.2),
+      0 0 0.125em hsla(320, 100%, 60%, 0.3),
+      1em -0.125em 0.5em hsla(40, 100%, 60%, 0),
+      -1em 0.125em 0.5em hsla(200, 100%, 60%, 0);
+  }
+  
+}
+
+
+.title {
+      animation: lights 5s 750ms linear infinite;
+}
+
+/* -------------------------------end title animation ------------------------------- */
+
+/* -------------------------------button animation ------------------------------- */
+.glow-on-hover {
+    width: 220px;
+    height: 50px;
+    border: none;
+    outline: none;
+    color: #fff;
+    background: #111;
+    cursor: pointer;
+    position: relative;
+    z-index: 0;
+    border-radius: 10px;
+}
+
+.glow-on-hover:before {
+    content: '';
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bff, #7a00ff, #ff00c8, #ff0000);
+    position: absolute;
+    top: -2px;
+    left:-2px;
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(5px);
+    width: calc(100% + 4px);
+    height: calc(100% + 4px);
+    animation: glowing 20s linear infinite;
+    opacity: 0;
+    transition: opacity .3s ease-in-out;
+    border-radius: 10px;
+}
+
+.glow-on-hover:active {
+    color: #000
+}
+
+.glow-on-hover:active:after {
+    background: transparent;
+}
+
+.glow-on-hover:hover:before {
+    opacity: 1;
+}
+
+.glow-on-hover:after {
+    z-index: -1;
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #111;
+    left: 0;
+    top: 0;
+    border-radius: 10px;
+}
+
+@keyframes glowing {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+
+/* -------------------------------end button animation ------------------------------- */
+
+
+

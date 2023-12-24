@@ -26,17 +26,17 @@
 
 <body>
   <div class="container py-5">
-    <h1 class="my-3">Bookmarker</h1>
-    <div class="book-content my-5">
+    <h1 class="title my-3">Bookmarker</h1>
+    <div class="book-content my-5 p-4">
       <h2 class="my-4"><i class="fa-solid fa-bookmark"></i> Bookmark your favorite sites <i
           class="fa-solid fa-bookmark"></i></h2>
       <div class="mb-4">
         <label for="siteName" class="mb-2 fw-semibold"><i class="fa-solid fa-book-bookmark pe-2"></i> Site Name</label>
-        <input  class="form-control" id="siteName" type="text" placeholder="Bookmark Name">
+        <input class="form-control" id="siteName" type="text" placeholder="Bookmark Name">
         <div id="nameMessage" class="mt-2 p-0 alert alert-danger d-none">
           <ul>
             <li>Must start with a letter</li>
-            <li>Enter characters from 5 to 15</li>
+            <li>Enter characters from 5 to 12</li>
           </ul>
         </div>
 
@@ -51,9 +51,10 @@
         </div>
 
       </div>
-      <div class="d-flex justify-content-center mb-4">
-        <button id="AddBtn" class="btn btn-danger px-5">Add Site</button>
-
+      <div class="d-flex flex-md-row justify-content-center flex-wrap flex-sm-column gap-2 ">
+        <button id="resetForm" class="glow-on-hover me-md-3 ">Reset</button>
+        <button id="AddBtn" class="glow-on-hover me-md-3">Add Site</button>
+        <button id="clearTable" class="glow-on-hover  me-md-3">Clear Table</button>
       </div>
     </div>
     <table id="example" class="table table-striped nowrap w-100 ">
@@ -89,9 +90,29 @@
     </div>
   </div>
 
+  <!-- Modal to confirm clearing the table -->
+  <div class="modal fade" id="clearTableModal" tabindex="-1" aria-labelledby="clearTableModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="clearTableModalLabel">Clear Table Confirmation</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to clear the Data?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          <button type="button" class="btn btn-danger" onclick="clearTableConfirmed()"
+            data-bs-dismiss="modal">Clear</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <!-- datatable js-->
   <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
-
   <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
   <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
   <script src="https://cdn.datatables.net/responsive/2.5.0/js/dataTables.responsive.min.js"></script>
@@ -100,6 +121,7 @@
   <script src="js/bootstrap.bundle.min.js"></script>
   <!-- custom js -->
   <script src="js/main.js"></script>
+
 </body>
 
 </html>
